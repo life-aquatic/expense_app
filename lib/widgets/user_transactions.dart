@@ -48,7 +48,7 @@ class _UserTransactionsState extends State<UserTransactions> {
     ),
   ];
 
-  void _AddNewTransaction(String title, double amount) {
+  void AddNewTransaction(String title, double amount) {
     final newTx = Transaction(
       id: _user_transactions.length + 1,
       title: title,
@@ -64,7 +64,7 @@ class _UserTransactionsState extends State<UserTransactions> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        NewTransaction(_AddNewTransaction),
+        NewTransaction(AddNewTransaction),
         TransactionList(_user_transactions),
       ],
     );

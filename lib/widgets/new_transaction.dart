@@ -16,18 +16,28 @@ class NewTransaction extends StatelessWidget {
             TextField(
               decoration: InputDecoration(labelText: 'Title'),
               controller: titleController,
+              autofocus: true,
+              textInputAction: TextInputAction.next,
             ),
             TextField(
               decoration: InputDecoration(labelText: 'Amount'),
               controller: amountController,
+              keyboardType: TextInputType.number,
+              textInputAction: TextInputAction.done,
+              onSubmitted: (_) {
+                _AddNewTransaction(
+                  titleController.text,
+                  double.parse(amountController.text),);
+              },
+
             ),
             FlatButton(
               child: Text('Add a record'),
               textColor: Colors.deepOrange,
               onPressed: () {
                 _AddNewTransaction(
-                titleController.text,
-                double.parse(amountController.text));
+                  titleController.text,
+                  double.parse(amountController.text),);
               },
             ),
           ],
